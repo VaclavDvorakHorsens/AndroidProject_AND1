@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Moje Aplikace</string>
+    <string name="nav_open" translatable="false">Otevrit</string>
+    <string name="nav_close" translatable="false">Zavrit</string>
+    <string name="action_settings" translatable="false">Nastaveni</string>
+    <string name="action_favorite">Oblibene</string>
+    <string name="send_email">Posli mail</string>
+    <string name="email_address_validation">emailova adresa je v chybnem formatu</string>
+    <string name="address_email_field">zadej emailovou adresu</string>
+    <string name="subject_email_field">zadej email subject</string>
+    <string name="text_email_field">napis email</string>
+    <string name="error_message">neco se pokazilo</string>
+    <string name="snackBar_message">some snackBar message</string>
+    <string name="snackBar_message1">some snackbar message1</string>
+    <string name="mom">mom</string>
+    <string name="dad">dad</string>
+    <string name="snackBar_CalledMom">you called mom last time already</string>
+    <string name="snackBar_CalledDad">you called dad last time already</string>
+    <string name="snackBar_callAnyway">call anyway</string>
+    <string name="title_diary">Denik</string>
+    <string name="title_diaryDay">diaryDay</string>
+    <string name="title_diaryDayDescription">Day Description</string>
+    <string name="add_Diary_Item">add diary item</string>
+    <string name="enter_diary_date"><u>enter diary date</u></string>
+    <string name="enter_diary_description"><u>enter diary description</u></string>
+    <string name="email_was_sent">email was sent</string>
+    <string name="no_new_email">no new email</string>
+    <string name="new_email_notification">you have new email!</string>
+    <string name="calledTwoTimesInRow">you called them last time</string>
+    <string name="update_Diary_Item">update</string>
+    <string name="delete_Diary_Item">delete</string>
+    <string name="reallyUpdate">update?</string>
+    <string name="Yes">Yes</string>
+    <string name="reallyDelete">Delete?</string>
+</resources>
