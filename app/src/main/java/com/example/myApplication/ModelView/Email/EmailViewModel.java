@@ -2,7 +2,7 @@ package com.example.myApplication.ModelView.Email;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
-
+import com.example.myApplication.Model.Email.Email;
 import com.example.myApplication.Model.Email.EmailModel;
 
 
@@ -15,7 +15,7 @@ public class EmailViewModel extends ViewModel {
 
 
     //return email
-    public LiveData<String> getEmail()
+    public LiveData<Email> getEmail()
     {
         return EmailModel.getInstance().getEmail();
     }

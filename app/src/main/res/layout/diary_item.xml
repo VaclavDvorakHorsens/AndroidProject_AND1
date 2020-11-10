@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-
     <TextView
         android:id="@+id/diaryDay"
         style="@style/diaryStyle"
@@ -31,5 +30,4 @@
         android:layout_height="30dp"
         android:layout_weight="1"
         android:src="@drawable/diary" />
-
 </LinearLayout>

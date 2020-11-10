@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">MyApp</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
-    <string name="action_settings">settings</string>
+    <string name="action_settings">Language</string>
     <string name="action_favorite">favorite</string>
     <string name="title_email" translatable="false">Email</string>
     <string name="title_call" translatable="false">Call</string>
@@ -15,8 +15,6 @@
     <string name="error_message">something went wrong</string>
     <string name="mom">mom</string>
     <string name="dad">dad</string>
-    <string name="snackBar_CalledMom">you called mom last time already</string>
-    <string name="snackBar_CalledDad">you called dad last time already</string>
     <string name="snackBar_callAnyway">call anyway</string>
     <string name="title_diary">Diary</string>
     <string name="title_diaryDay">diaryDay</string>
@@ -25,13 +23,13 @@
     <string name="enter_diary_date"><u>enter diary date</u></string>
     <string name="enter_diary_description"><u>enter diary description</u></string>
     <string name="email_was_sent">email was sent</string>
-    <string name="no_new_email">no new email</string>
-    <string name="new_email_notification">you have new email!</string>
-    <string name="get_email">Get Emal</string>
-    <string name="calledTwoTimesInRow">you called them last time</string>
+    <string name="new_email_notification">you have new email from: </string>
+    <string name="get_email">Get Email</string>
+    <string name="bother_parrents">do you really want to bother them?</string>
     <string name="update_Diary_Item">update</string>
     <string name="delete_Diary_Item">delete</string>
     <string name="reallyUpdate">update?</string>
     <string name="Yes">Yes</string>
     <string name="reallyDelete">Delete?</string>
+    <string name="go_to_emailBox">....GO TO YOUR EMAIL BOX TO SEE THE REST</string>
 </resources>

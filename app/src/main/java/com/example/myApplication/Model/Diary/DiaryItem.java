@@ -3,7 +3,6 @@ package com.example.myApplication.Model.Diary;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import com.example.navigationdrawer.R;
 
 
 @Entity(tableName = "diary_table")
@@ -13,30 +12,29 @@ public class DiaryItem {
     private int id;
     private String diaryDate;
     private String diaryDateDescription;
-    /*private int diaryIconId;*/
 
 
-    public DiaryItem(String diaryDate,String diaryDateDescription)
-    {
-        this.diaryDate=diaryDate;
-        this.diaryDateDescription=diaryDateDescription;
-        /*this.diaryIconId= R.drawable.diary;*/
+    //constructor
+    public DiaryItem(String diaryDate, String diaryDateDescription) {
+        this.diaryDate = diaryDate;
+        this.diaryDateDescription = diaryDateDescription;
     }
 
+
+    //constructor that accepts id from adapter list item cache, for updating/deleting purposes
     @Ignore
-    public DiaryItem(int id,String diaryDate,String diaryDateDescription)
-    {
-        this.diaryDate=diaryDate;
-        this.diaryDateDescription=diaryDateDescription;
-
-        this.id=id;
+    public DiaryItem(int id, String diaryDate, String diaryDateDescription) {
+        this.diaryDate = diaryDate;
+        this.diaryDateDescription = diaryDateDescription;
+        this.id = id;
     }
 
 
-
+    //getters and setters
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -44,17 +42,18 @@ public class DiaryItem {
     public String getDiaryDate() {
         return diaryDate;
     }
-    public void setDiaryDate(String diaryDate){this.diaryDate=diaryDate;}
 
-    public String getDiaryDateDescription()
-    {
+    public void setDiaryDate(String diaryDate) {
+        this.diaryDate = diaryDate;
+    }
+
+    public String getDiaryDateDescription() {
         return diaryDateDescription;
     }
-    public void setDiaryDateDescription(String diaryDateDescription){this.diaryDateDescription=diaryDateDescription;}
 
-  /*  public int getDiaryIconId()
-    {
-        return diaryIconId;
+    public void setDiaryDateDescription(String diaryDateDescription) {
+        this.diaryDateDescription = diaryDateDescription;
     }
-    public void setDiaryIconId(int diaryIconId){this.diaryIconId=diaryIconId;}*/
+
+
 }

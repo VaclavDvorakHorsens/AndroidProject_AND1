@@ -20,9 +20,5 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </com.google.android.material.appbar.AppBarLayout>
-
-
-
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,47 +1,32 @@
 package com.example.myApplication.Model.Call;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CallModel {
     private List<String> numbers;
     private static CallModel  instance;
-    private boolean didYouCallMomLast;
 
+//set up mom and dads phone number
     private CallModel (){
-        List<String> numbers = new ArrayList<>();
+        numbers = new ArrayList<>();
+        numbers.add("123456789");
+        numbers.add("987654321");
     }
 
+    //return THIS
     public static CallModel getInstance(){
         if(instance == null)
             instance = new CallModel();
-
         return instance;
     }
 
+    //return phone number
     public String getPhoneNumber(int indexPhoneNumber)
     {
-        if(didYouCallMomLast)
-        {
-            didYouCallMomLast=false;
-        }
-        else didYouCallMomLast=true;
         return numbers.get(indexPhoneNumber);
     }
 
 
-    public boolean checkIfYouDidntCallThemAlready(boolean momOrDad) {
-
-        if(momOrDad && didYouCallMomLast)
-        {
-            return true;
-        }
-        else if(!momOrDad && !didYouCallMomLast)
-        {
-            return true;
-        }
-        else return false;
-
-
-    }
 }
