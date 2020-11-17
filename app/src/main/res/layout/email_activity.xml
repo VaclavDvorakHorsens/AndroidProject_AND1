@@ -5,43 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eceff1"
-
     tools:context="com.example.myApplication.View.Email.EmailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:id="@+id/linearEmailView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/emailAdd"
+            app:layout_constraintEnd_toStartOf="@+id/getEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/emailNotificationSender"
+                style="@style/emailStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:textColor="@color/colorRed"
+                android:textFontWeight="500"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/emailNotificationText"
+                style="@style/emailStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ems="10"
+                android:textColor="@color/colorRed"
+                android:textFontWeight="500"
+                android:visibility="invisible" />
+        </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-
             android:id="@+id/getEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             android:scaleType="fitCenter"
-
             android:src="@drawable/ic_baseline_arrow_downward"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/emailNotification"
-            style="@style/emailStyle"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:textColor="@color/colorRed"
-            android:visibility="invisible"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/textOfEmail"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toBottomOf="@+id/getEmail" />
 
         <EditText
             android:id="@+id/emailAdd"
@@ -49,14 +72,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="@android:color/holo_blue_light"
             android:ems="10"
             android:hint="@string/address_email_field"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailNotification" />
+            app:layout_constraintTop_toBottomOf="@+id/linearEmailView"
+            tools:layout_editor_absoluteY="56dp" />
 
         <EditText
             android:id="@+id/emailSubject"
@@ -68,7 +92,7 @@
             android:background="@android:color/holo_blue_light"
             android:ems="10"
             android:hint="@string/subject_email_field"
-
+            app:layout_constraintBottom_toTopOf="@+id/textOfEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailAdd" />
@@ -77,22 +101,22 @@
             android:id="@+id/textOfEmail"
             style="@style/emailStyle"
             android:layout_width="match_parent"
-            android:layout_height="297dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="8dp"
             android:background="@android:color/holo_green_light"
             android:ems="10"
             android:gravity="top"
             android:hint="@string/text_email_field"
-
             android:inputType="textMultiLine"
             android:overScrollMode="always"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailSubject" />
 
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-
             android:id="@+id/sendEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,22 +127,7 @@
             android:scaleType="fitCenter"
             android:src="@android:drawable/ic_dialog_email"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textOfEmail"
-
-            />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/emailSubject"
-            app:layout_constraintTop_toBottomOf="@+id/getEmail" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/textOfEmail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--too little here......probably better delete this whole sheet-->
     <style name="callStyle">
         <item name="android:textSize">22dp</item>
     </style>
