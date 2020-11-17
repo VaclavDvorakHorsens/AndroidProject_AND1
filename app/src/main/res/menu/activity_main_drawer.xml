@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
     <group>
         <item
-            android:id="@+id/nav_email"
-            android:icon="@drawable/ic_drafts_black_24dp"
-            android:title="@string/title_email" />
-        <item
             android:id="@+id/nav_call"
             android:icon="@drawable/ic_drafts_black_24dp"
             android:title="@string/title_call" />
+        <item
+            android:id="@+id/nav_email"
+            android:icon="@drawable/ic_drafts_black_24dp"
+            android:title="@string/title_email"/>
         <item
             android:id="@+id/nav_diary"
             android:icon="@drawable/ic_drafts_black_24dp"

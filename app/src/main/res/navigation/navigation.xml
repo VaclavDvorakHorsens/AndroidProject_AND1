@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_email">
-    <fragment
-        android:id="@+id/nav_email"
-        android:name="com.example.myApplication.View.Email.EmailFragment"
-        android:label="Email"
-        tools:layout="@layout/email_activity" />
+    app:startDestination="@+id/nav_call">
     <fragment
         android:id="@+id/nav_call"
         android:name="com.example.myApplication.View.Call.CallFragment"
         android:label="Call"
         tools:layout="@layout/call_activity" />
+    <fragment
+        android:id="@+id/nav_email"
+        android:name="com.example.myApplication.View.Email.EmailFragment"
+        android:label="Email"
+        tools:layout="@layout/email_activity" />
     <fragment
         android:id="@+id/nav_diary"
         android:name="com.example.myApplication.View.Diary.DiaryFragment"

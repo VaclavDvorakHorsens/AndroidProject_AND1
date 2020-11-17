@@ -12,8 +12,16 @@ public class CallViewModel extends ViewModel {
 
 
     //retrieve phone number
-    public String makeTheCall(int indexPhoneNumber) {
-        return CallModel.getInstance().getPhoneNumber(indexPhoneNumber);
+    public String makeTheCall(String phoneNumberName) {
+        return CallModel.getInstance().getPhoneNumber(phoneNumberName);
+    }
+
+    public void addValueEventListener() {
+        CallModel.getInstance().addValueEventListener();
+    }
+
+    public void removeEventListener() {
+        CallModel.getInstance().removeEventListener();
     }
 
 }

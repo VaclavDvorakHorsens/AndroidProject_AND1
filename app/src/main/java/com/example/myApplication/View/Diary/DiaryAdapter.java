@@ -8,24 +8,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myApplication.Model.Diary.DiaryItem;
-import com.example.myApplication.ModelView.Diary.DiaryViewModel;
 import com.example.navigationdrawer.R;
 import java.util.ArrayList;
 import java.util.List;
 
-//class that servers as a translator between recycle view and diary items from view model
+//class that servers as a translator between recycle view and diary items from view
 public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> {
 
     private List<DiaryItem> diaryItems;
     private OnListItemClickListener itemListener;
-    private DiaryViewModel viewModel;
 
 
-    //constructor that accepts diary items listeners and view model
-    public DiaryAdapter(OnListItemClickListener itemListener, DiaryViewModel viewModel) {
+
+    //constructor that accepts diary items listeners
+    public DiaryAdapter(OnListItemClickListener itemListener) {
         this.diaryItems = new ArrayList<>();
         this.itemListener = itemListener;
-        this.viewModel = viewModel;
     }
 
     //returns size of diary items
@@ -34,6 +32,8 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
         return diaryItems.size();
     }
 
+    //return list of diary items
+    public List<DiaryItem> getDiaryItems() {return diaryItems;}
 
     //create and return view holder that holds view of diary item
     @NonNull
@@ -51,31 +51,10 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
         viewHolder.diaryDateDescription.setText(diaryItems.get(position).getDiaryDateDescription());
     }
 
-
-    //add diary item via view model
-    public void addItem(DiaryItem diaryItem) {
-        viewModel.addDiaryItem(diaryItem);
-    }
-
     //update diary item via view model
     public void updateList(List<DiaryItem> diaryItems) {
         this.diaryItems = diaryItems;
         notifyDataSetChanged();
-    }
-
-
-    //update diary item via model
-    public void updateItem(int idOfItem, DiaryItem diaryItem) {
-        DiaryItem toUpdate = diaryItem;
-        diaryItem.setId(diaryItems.get(idOfItem).getId());
-        viewModel.updateDiaryItem(toUpdate);
-    }
-
-    //delete
-    public void deleteItem(int number, DiaryItem diaryItem) {
-        DiaryItem toUpdate = diaryItem;
-        diaryItem.setId(diaryItems.get(number).getId());
-        viewModel.deleteDiaryItem(diaryItem);
     }
 
     //view holder that connects diary items and recycle view

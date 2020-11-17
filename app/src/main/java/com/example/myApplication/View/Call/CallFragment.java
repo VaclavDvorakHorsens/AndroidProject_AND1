@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -15,12 +16,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.myApplication.Model.Diary.DiaryItem;
 import com.example.myApplication.ModelView.Call.CallViewModel;
 import com.example.navigationdrawer.R;
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class CallFragment extends Fragment {
@@ -41,6 +48,7 @@ public class CallFragment extends Fragment {
         setUpLocalGUIVariables();
         addViewModel();
         setMakeCallListener();
+       /* checkIfSignedIn();*/
         return rootView;
     }
 
@@ -54,6 +62,23 @@ public class CallFragment extends Fragment {
         callCoordinatorLayout = rootView.findViewById(R.id.callCoordinatorLayout);
     }
 
+
+/*
+    private void checkIfSignedIn() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null)
+            Toast.makeText(getActivity(), "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+        else
+            startLoginActivity();
+    }
+
+
+    private void startLoginActivity() {
+        startActivity(new Intent(getActivity(), SignInActivity.class));
+        getActivity().finish();
+    }
+*/
 
     //show a snack bar, user needs to confirm that they really want to make the call
     private void setMakeCallListener() {
@@ -80,9 +105,9 @@ public class CallFragment extends Fragment {
     private void makeTheCall() {
         String telNumber = "";
         if (radioMom.isChecked()) {
-            telNumber = viewModel.makeTheCall(0);
+            telNumber = viewModel.makeTheCall("mom");
         } else if (radioDad.isChecked()) {
-            telNumber = viewModel.makeTheCall(1);
+            telNumber = viewModel.makeTheCall("dad");
         }
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + telNumber));startActivity(intent);
 
@@ -93,6 +118,21 @@ public class CallFragment extends Fragment {
     private void addViewModel() {
         viewModel = new ViewModelProvider(this).get(CallViewModel.class);
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        viewModel.addValueEventListener();
+    }
+
+    @Override
+    public void onStop() {
+
+        super.onStop();
+        viewModel.removeEventListener();
+    }
+
 
 }
 

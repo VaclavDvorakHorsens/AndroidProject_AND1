@@ -62,7 +62,7 @@ public class DiaryFragment extends Fragment implements DiaryAdapter.OnListItemCl
         recycleViewList = rootView.findViewById(R.id.recycleView);
         recycleViewList.hasFixedSize();
         recycleViewList.setLayoutManager(new LinearLayoutManager(getActivity()));
-        diaryAdapter = new DiaryAdapter(this, (DiaryViewModel) diaryViewModel);
+        diaryAdapter = new DiaryAdapter(this);
         addDiaryItem = rootView.findViewById(R.id.addDiaryItem);
         updateDiaryItem = rootView.findViewById(R.id.updateDiaryItem);
         deleteDiaryItem = rootView.findViewById(R.id.deleteDiaryItem);
@@ -89,7 +89,7 @@ public class DiaryFragment extends Fragment implements DiaryAdapter.OnListItemCl
                 String newDiaryDateText = newDiaryDate.getText().toString();
                 String newDiaryDateDescriptionText = newDiaryDateDescription.getText().toString();
                 DiaryItem diaryItem = new DiaryItem(newDiaryDateText, newDiaryDateDescriptionText);
-                diaryAdapter.addItem(diaryItem);
+                ((DiaryViewModel) diaryViewModel).addDiaryItem(diaryItem);
             }
         });
     }
@@ -108,7 +108,8 @@ public class DiaryFragment extends Fragment implements DiaryAdapter.OnListItemCl
                                     String newDiaryDateText = newDiaryDate.getText().toString();
                                     String newDiaryDateDescriptionText = newDiaryDateDescription.getText().toString();
                                     DiaryItem diaryItem = new DiaryItem(diaryItemPosition, newDiaryDateText, newDiaryDateDescriptionText);
-                                    diaryAdapter.updateItem(diaryItemPosition, diaryItem);
+                                    diaryItem.setId(diaryAdapter.getDiaryItems().get(diaryItemPosition).getId());
+                                    ((DiaryViewModel) diaryViewModel).updateDiaryItem(diaryItem);
                                     isItemSelected = false;
                                 }
                             });
@@ -132,7 +133,8 @@ public class DiaryFragment extends Fragment implements DiaryAdapter.OnListItemCl
                                     String newDiaryDateText = newDiaryDate.getText().toString();
                                     String newDiaryDateDescriptionText = newDiaryDateDescription.getText().toString();
                                     DiaryItem diaryItem = new DiaryItem(diaryItemPosition, newDiaryDateText, newDiaryDateDescriptionText);
-                                    diaryAdapter.deleteItem(diaryItemPosition, diaryItem);
+                                    diaryItem.setId(diaryAdapter.getDiaryItems().get(diaryItemPosition).getId());
+                                    ((DiaryViewModel) diaryViewModel).deleteDiaryItem(diaryItem);
                                     isItemSelected = false;
                                 }
                             });
@@ -141,7 +143,6 @@ public class DiaryFragment extends Fragment implements DiaryAdapter.OnListItemCl
             }
         });
     }
-
 
     //click diary item callback from Diary Adapter so the update/delete buttons would get item id
     @Override
