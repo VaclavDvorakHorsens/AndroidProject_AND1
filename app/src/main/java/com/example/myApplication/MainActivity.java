@@ -9,30 +9,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import com.example.myApplication.View.Call.SignInActivity;
 import com.example.navigationdrawer.R;
-import com.example.myApplication.Model.Diary.DiaryItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import java.util.ArrayList;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_call,
                 R.id.nav_email
-                )
+        )
                 .setOpenableLayout(drawerLayout)
                 .build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -72,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationDrawer, navController);
         setBottomNavigationVisibility();
     }
-
 
     //set bottom navigation visibility
     private void setBottomNavigationVisibility() {
@@ -96,12 +85,22 @@ public class MainActivity extends AppCompatActivity {
 
     //set action on option menu items
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
-            case R.id.action_settings:
+            //in case that Language settings was selected
+            case R.id.language_settings:
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
                 startActivity(intent);
+                return true;
+            //in case that sign out was selected
+            case R.id.sign_out:
+                AuthUI.getInstance()
+                        .signOut(this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            public void onComplete(@NonNull Task<Void> task) {
+                                startSigninActivity();
+                            }
+                        });
                 return true;
         }
         super.onOptionsItemSelected(item);
@@ -110,30 +109,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-   /* @Override
-    protected void onStop() {
-        super.onStop();
-        AuthUI.getInstance()
-                .signOut(this)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    public void onComplete(@NonNull Task<Void> task) {
-                        startLoginActivity();
-                    }
-                });
-    }*/
-
-
+    //check if user is signed in and if not, call SignInActivity
     private void checkIfSignedIn() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null)
-            Toast.makeText(this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.welcomeMessage+ user.getDisplayName(), Toast.LENGTH_SHORT).show();
         else
-            startLoginActivity();
+            startSigninActivity();
     }
 
-
-    private void startLoginActivity() {
+    //call SignInIntent
+    private void startSigninActivity() {
         startActivity(new Intent(this, SignInActivity.class));
         finish();
     }

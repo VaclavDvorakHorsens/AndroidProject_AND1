@@ -30,6 +30,9 @@
     <string name="bother_parrents">opravdu je chces otravovat?</string>
     <string name="reallyDelete">Smazat?</string>
     <string name="go_to_emailBox">....JDI DO EMAIL SCHRANKY</string>
-    <string name="sign_in">SIGN IN</string>
-    <string name="SignInCancled">signing in was cancled</string>
+    <string name="sign_in">prihlasit se</string>
+    <string name="SignInCancled">prihlasovani bylo zastaveno</string>
+    <string name="sing_out">odhlasit</string>
+    <string name="welcome">vitejte do flash communication app</string>
+    <string name="welcomeMessage">Vitejte</string>
 </resources>

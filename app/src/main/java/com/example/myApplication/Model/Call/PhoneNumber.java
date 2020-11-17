@@ -1,5 +1,7 @@
 package com.example.myApplication.Model.Call;
 
+
+//class for storing data from firebase database
 public class PhoneNumber {
 
     private String name;

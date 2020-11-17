@@ -1,35 +1,23 @@
 package com.example.myApplication.View.Call;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
-
-import com.example.myApplication.Model.Diary.DiaryItem;
 import com.example.myApplication.ModelView.Call.CallViewModel;
 import com.example.navigationdrawer.R;
-import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
+//class that servers as view for phone calling functions
 public class CallFragment extends Fragment {
 
     View rootView;
@@ -48,7 +36,6 @@ public class CallFragment extends Fragment {
         setUpLocalGUIVariables();
         addViewModel();
         setMakeCallListener();
-       /* checkIfSignedIn();*/
         return rootView;
     }
 
@@ -63,29 +50,11 @@ public class CallFragment extends Fragment {
     }
 
 
-/*
-    private void checkIfSignedIn() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null)
-            Toast.makeText(getActivity(), "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
-        else
-            startLoginActivity();
-    }
-
-
-    private void startLoginActivity() {
-        startActivity(new Intent(getActivity(), SignInActivity.class));
-        getActivity().finish();
-    }
-*/
-
     //show a snack bar, user needs to confirm that they really want to make the call
     private void setMakeCallListener() {
         makeCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Snackbar snackbar = Snackbar.make(callCoordinatorLayout, getActivity().getApplicationContext().getString(R.string.bother_parrents),
                         Snackbar.LENGTH_LONG)
                         .setAction(getActivity().getApplicationContext().getString(R.string.Yes), new View.OnClickListener() {
@@ -101,7 +70,7 @@ public class CallFragment extends Fragment {
     }
 
 
-    //make the call via intent, get phone number from model
+    //make the call via intent, get phone number from model via view model
     private void makeTheCall() {
         String telNumber = "";
         if (radioMom.isChecked()) {
@@ -109,7 +78,8 @@ public class CallFragment extends Fragment {
         } else if (radioDad.isChecked()) {
             telNumber = viewModel.makeTheCall("dad");
         }
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + telNumber));startActivity(intent);
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + telNumber));
+        startActivity(intent);
 
     }
 
@@ -120,15 +90,16 @@ public class CallFragment extends Fragment {
     }
 
 
+    //on activity start
     @Override
     public void onStart() {
         super.onStart();
         viewModel.addValueEventListener();
     }
 
+    //on activity stop
     @Override
     public void onStop() {
-
         super.onStop();
         viewModel.removeEventListener();
     }

@@ -32,6 +32,9 @@
     <string name="Yes">Yes</string>
     <string name="reallyDelete">Delete?</string>
     <string name="go_to_emailBox">....GO TO YOUR EMAIL BOX TO SEE THE REST</string>
-    <string name="sign_in">SIGN IN</string>
+    <string name="sign_in">Sign in</string>
     <string name="SignInCancled">signing in was cancled</string>
+    <string name="sing_out">Sign out</string>
+    <string name="welcome">welcome to flash communication app</string>
+    <string name="welcomeMessage">Welcome</string>
 </resources>

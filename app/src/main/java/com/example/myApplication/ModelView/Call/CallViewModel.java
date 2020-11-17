@@ -10,16 +10,17 @@ public class CallViewModel extends ViewModel {
     public void CallViewModel() {
     }
 
-
     //retrieve phone number
     public String makeTheCall(String phoneNumberName) {
         return CallModel.getInstance().getPhoneNumber(phoneNumberName);
     }
 
+    //add listener on DatabaseReference in Model
     public void addValueEventListener() {
         CallModel.getInstance().addValueEventListener();
     }
 
+    //remove listener on DatabaseReference in Model
     public void removeEventListener() {
         CallModel.getInstance().removeEventListener();
     }
