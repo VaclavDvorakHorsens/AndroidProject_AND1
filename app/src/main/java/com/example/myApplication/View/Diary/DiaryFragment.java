@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.Fragment;
 import com.example.myApplication.Model.Diary.DiaryItem;
 import com.example.myApplication.ModelView.Diary.DiaryViewModel;
-import com.example.navigationdrawer.R;
+import com.example.myApplication.R;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 

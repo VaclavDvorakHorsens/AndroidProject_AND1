@@ -13,11 +13,12 @@ public class EmailModel {
 
     private static EmailModel instance;
     private MutableLiveData<Email> email;
-    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>(false);
+    private MutableLiveData<Boolean> isLoading;
 
     //private constructor
     private EmailModel() {
         email = new MutableLiveData<>();
+        isLoading= new MutableLiveData<>(false);
     }
 
     //get instance of THIS
@@ -31,7 +32,6 @@ public class EmailModel {
     //retrieve email
     public void retrieveEmail() {
         isLoading.setValue(true);
-
         //manual timer that makes the call longer so the loading can be shown on the screen via progress bar
         new Timer().schedule(new TimerTask() {
             @Override
@@ -45,7 +45,6 @@ public class EmailModel {
                             email.setValue(response.body().getEmail());
                         }
                     }
-
                     @Override
                     public void onFailure(Call<EmailResponse> call, Throwable t) {
                         Log.i("EmailDownloading", "Email downloading went wrong :(");
