@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myApplication.Model.Diary.DiaryItem;
-import com.example.navigationdrawer.R;
+import com.example.myApplication.R;
 import java.util.ArrayList;
 import java.util.List;
 

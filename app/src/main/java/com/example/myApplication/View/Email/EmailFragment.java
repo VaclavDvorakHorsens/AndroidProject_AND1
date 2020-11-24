@@ -3,24 +3,20 @@ package com.example.myApplication.View.Email;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.myApplication.Model.Email.Email;
 import com.example.myApplication.ModelView.Email.EmailViewModel;
-import com.example.navigationdrawer.R;
+import com.example.myApplication.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -46,7 +42,6 @@ public class EmailFragment extends Fragment {
         //set up variables and models
         addViewModel();
         setUpLocalGUIVariables();
-
         setUpEmailListener();
         setGetEmailListener();
         return rootView;
@@ -133,7 +128,6 @@ public class EmailFragment extends Fragment {
             @Override
             public void onChanged(Email newEmail) {
                 emailNotificationSender.setVisibility(TextView.VISIBLE);
-                /*emailNotification.setText(R.string.new_email_notification+newEmail.getEmailSender());*/
                 emailNotificationSender.setText(R.string.new_email_notification);
                 emailNotificationSender.append("\n"+newEmail.getEmailSender());
                 String emailMessage=newEmail.getEmailMessage();

@@ -5,11 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myApplication.MainActivity;
-import com.example.navigationdrawer.R;
 import com.firebase.ui.auth.AuthUI;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,15 +16,8 @@ public class SignInActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*checkIfSignedIn();*/
         setContentView(R.layout.call_signin);
     }
-    //private method that checks if user is signed in and if so then redirect to main activity
-   /* private void checkIfSignedIn() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null)
-            goToMainActivity();
-    }*/
 
     //go to main activity class
     private void goToMainActivity() {

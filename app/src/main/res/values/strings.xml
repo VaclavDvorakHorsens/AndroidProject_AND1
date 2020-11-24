@@ -8,7 +8,7 @@
     <string name="title_call" translatable="false">Call</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="send_email">Send Email</string>
-    <string name="email_address_validation">email address is not valid</string>
+    <string name="email_address_validation">email address is not valid or subject is empty</string>
     <string name="address_email_field">input email address</string>
     <string name="subject_email_field">enter subject</string>
     <string name="text_email_field">write your email</string>

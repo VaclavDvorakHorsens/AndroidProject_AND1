@@ -15,7 +15,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.example.navigationdrawer.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.firebase.ui.auth.AuthUI;
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null)
-            Toast.makeText(this, R.string.welcomeMessage+ user.getDisplayName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.welcomeMessage)+" "+ user.getDisplayName(), Toast.LENGTH_SHORT).show();
         else
             startSigninActivity();
     }

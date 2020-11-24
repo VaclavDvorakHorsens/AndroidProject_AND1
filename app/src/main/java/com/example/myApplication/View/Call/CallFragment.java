@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.example.myApplication.ModelView.Call.CallViewModel;
-import com.example.navigationdrawer.R;
+import com.example.myApplication.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -55,6 +55,8 @@ public class CallFragment extends Fragment {
         makeCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(radioMom.isChecked() || radioDad.isChecked())
+                {
                 Snackbar snackbar = Snackbar.make(callCoordinatorLayout, getActivity().getApplicationContext().getString(R.string.bother_parrents),
                         Snackbar.LENGTH_LONG)
                         .setAction(getActivity().getApplicationContext().getString(R.string.Yes), new View.OnClickListener() {
@@ -65,7 +67,7 @@ public class CallFragment extends Fragment {
                         });
                 snackbar.show();
                 snackbar.setAnchorView(makeCall);
-            }
+            }}
         });
     }
 

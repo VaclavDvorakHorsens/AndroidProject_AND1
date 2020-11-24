@@ -6,7 +6,7 @@
     <string name="action_settings" translatable="false">Nastaveni</string>
     <string name="action_favorite">Oblibene</string>
     <string name="send_email">Posli mail</string>
-    <string name="email_address_validation">emailova adresa je v chybnem formatu</string>
+    <string name="email_address_validation">emailova adresa je v chybnem formatu nebo subject je prazdny</string>
     <string name="address_email_field">zadej emailovou adresu</string>
     <string name="subject_email_field">zadej email subject</string>
     <string name="text_email_field">napis email</string>
