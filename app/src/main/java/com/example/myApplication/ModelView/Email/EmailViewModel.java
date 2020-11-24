@@ -36,9 +36,9 @@ public class EmailViewModel extends ViewModel {
 
 
     //send email
-    public  boolean validateEmail(String emailSubject, String emailAddress, String emailBody)
+    public boolean validateEmail(String emailSubject, String emailAddress, String emailBody)
     {
-      if(isEmailValid(emailAddress))
+      if(isEmailAddressValid(emailAddress) && !isEmailSubjectEmpty(emailSubject))
       {
           return true;
       }
@@ -48,8 +48,17 @@ public class EmailViewModel extends ViewModel {
       }
     }
 
-    //validate email
-    private boolean isEmailValid(String emailAddress)
+    //validate email subject
+    private boolean isEmailSubjectEmpty(String emailSubject) {
+        if(emailSubject.equals(""))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    //validate email address
+    private boolean isEmailAddressValid(String emailAddress)
     {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if(emailAddress.matches(emailPattern)&& emailAddress.length() > 0)
