@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="applicationTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:typeface">sans</item>
         <item name="colorPrimary">#333FFF</item>
         <item name="colorPrimaryDark">#00FF00</item>
-        <item name="colorAccent">#0000FF</item>
+        <item name="colorAccent">@android:color/white</item>
         <item name="android:fontFamily">sans-serif/</item>
     </style>
 </resources>
