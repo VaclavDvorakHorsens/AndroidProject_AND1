@@ -48,7 +48,7 @@ public class EmailUnitTest {
     @Test
     public void validateInvalidEmptyEmailAddress()
     {
-  
+
         assertEquals(false,emailViewModel.validateEmail("subject","","emailBody"));
     }
 
@@ -56,7 +56,7 @@ public class EmailUnitTest {
     @Test
     public void validateValidEmailAddress()
     {
-      
+
         assertEquals(true,emailViewModel.validateEmail("subject","correct@gmail.dk","emailBody"));
     }
 

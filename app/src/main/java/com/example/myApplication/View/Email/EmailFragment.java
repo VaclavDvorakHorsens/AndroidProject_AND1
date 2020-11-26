@@ -1,6 +1,7 @@
 package com.example.myApplication.View.Email;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
@@ -61,6 +62,7 @@ public class EmailFragment extends Fragment {
                     {
                         Toast toast=Toast.makeText(getActivity().getApplicationContext(),getActivity().getApplicationContext().getString(R.string.email_address_validation),Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER,0,150);
+                        toast.getView().setBackgroundColor(Color.parseColor("#FF0000"));
                         toast.show();
                     }
                     else
